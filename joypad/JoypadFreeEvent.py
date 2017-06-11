@@ -25,5 +25,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_value=event.value
     if e_code == 2:
         # Stick 1 D<->G
-        print e_value
+        if e_value < 118 or e_value > 124:
+            valPerc = (e_value / 255.)*1.
+            print valPerc
 
