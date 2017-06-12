@@ -17,7 +17,7 @@ pwm.start(rapport)
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
-dev = InputDevice('/dev/input/js0')
+dev = InputDevice('/dev/input/event0')
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
