@@ -23,21 +23,22 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    if e_code != 2:
+    if e_code != 2 or e_code != 1:
         print "e_code : ",e_code
         print "e_value : ",e_value
 
-    if e_code == 1:
-        # 
-        if e_value < 120 or e_value > 120:
-            valPerc = (e_value / 255.)*1.
-            print "?? : ",valPerc
 
+    # Stick 1 D<->G
     if e_code == 2:
-        # Stick 1 D<->G
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
             print "Stick 1 D<>G : ",valPerc
+
+    # Stick 2 D<->G
+    if e_code == 1:
+        if e_value < 120 or e_value > 120:
+            valPerc = (e_value / 255.)*1.
+            print "Stick 2 D<>G : ",valPerc
 
     if e_code == 4:
         # L1
