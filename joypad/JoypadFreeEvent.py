@@ -23,6 +23,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
+    print "e_code : ",e_code
+    print "e_value : ",e_value
     if e_code == 1:
         # 
         if e_value < 120 or e_value > 120:
