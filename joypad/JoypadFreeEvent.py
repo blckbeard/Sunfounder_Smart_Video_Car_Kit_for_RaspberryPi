@@ -31,15 +31,15 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
 
     # Stick 1 H<->B
-    if e_code == 0:
+    if e_code == 1:
         #print "Stick 1 H<->B e_value : ",e_value
         # range : 21 - 210
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
-            #print "Stick 1 H<->B : ",valPerc
+            print "Stick 1 H<->B : ",valPerc
 
     # Stick 2 G<->D
-    if e_code == 1:
+    if e_code == 2:
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
             print "Stick 1 G<->D : ",valPerc
@@ -51,22 +51,25 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             print "Stick 2 H<->B : ",valPerc
 
     # Stick 2 G<->D
-    if e_code == 3:
+    if e_code == 4:
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 G<->D : ",valPerc
 
-    if e_code == 4:
-        # L1
-        if e_value == 589829:
-            print "L1 : ",e_value
-        # L2
-        if e_value == 589831:
-            print "L2 : ",e_value
-        # L1
-        if e_value == 589830:
-            print "R1 : ",e_value
-        # L2
-        if e_value == 589832:
-            print "R2 : ",e_value
+    # L1
+    if e_code == 292:
+        print "L1 : ",e_value
+
+    # L2
+    if e_code == 294:
+        print "L2 : ",e_value
+
+    # R1
+    if e_code == 293:
+        print "R1 : ",e_value
+
+    # R2
+    if e_code == 295:
+        print "R2 : ",e_value
+
 
