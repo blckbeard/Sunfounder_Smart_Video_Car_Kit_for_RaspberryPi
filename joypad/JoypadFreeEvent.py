@@ -23,10 +23,11 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    exclude = [0,1,2,3,5]
+    exclude = [1,2,3,5]
     if e_code not in exclude:
-        print "e_code : ",e_code
-        print "e_value : ",e_value
+        if e_value < 115 or e_value > 125:
+            print "e_code : ",e_code
+            print "e_value : ",e_value
 
     # Stick 1 H<->B
     if e_code == 1:
