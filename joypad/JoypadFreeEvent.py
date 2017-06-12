@@ -30,30 +30,31 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
 
 
-    # Stick 2 H<->B
+    # Stick 1 H<->B
     if e_code == 0:
         # range : 21 - 210
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
-            print "Stick 2 H<>B : ",valPerc
+            print "Stick 1 H<->B : ",valPerc
 
-    # Stick 2 D<->G
+    # Stick 2 G<->D
     if e_code == 1:
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
-            print "Stick 2 D<>G : ",valPerc
+            print "Stick 1 G<->D : ",valPerc
 
-    # Stick 1 D<->G
+    # Stick 2 H<->B
     if e_code == 2:
+        print "Stick 1 H<>B e_value : ",e_value
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
-            print "Stick 1 D<>G : ",valPerc
+            print "Stick 2 H<->B : ",valPerc
 
-    # Stick 1 D<->G
+    # Stick 2 G<->D
     if e_code == 3:
         if e_value < 118 or e_value > 124:
             valPerc = (e_value / 255.)*1.
-            print "Stick ? : ",valPerc
+            print "Stick 2 G<->D : ",valPerc
 
     if e_code == 4:
         # L1
