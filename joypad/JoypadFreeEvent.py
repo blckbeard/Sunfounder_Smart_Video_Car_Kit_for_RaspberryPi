@@ -23,9 +23,9 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    #if e_code != 0 or e_code != 2:
-        #print "e_code : ",e_code
-        #print "e_value : ",e_value
+    if e_code != 0 or e_code != 1 or e_code != 2:
+        print "e_code : ",e_code
+        print "e_value : ",e_value
 
 
     # Stick 1 D<->G
@@ -36,7 +36,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
     # Stick 2 H<->B
     if e_code == 0:
-        if e_value < 120 or e_value > 120:
+        print "e_value :",e_value
+        if e_value < 118 or e_value > 120:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 H<>B : ",valPerc
 
