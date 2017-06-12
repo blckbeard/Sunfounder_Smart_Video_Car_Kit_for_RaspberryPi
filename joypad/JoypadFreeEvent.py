@@ -23,7 +23,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    exclude = [1,3,5]
+    exclude = [1,2,3,5]
     if e_code not in exclude:
         if e_value != 0 :
             print "e_code : ",e_code
