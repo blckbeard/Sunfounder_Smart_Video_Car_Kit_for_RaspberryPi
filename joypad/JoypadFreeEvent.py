@@ -23,13 +23,19 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    exclude = [0]
+    exclude = []
     if e_code not in exclude:
+        if e_value < 115 or e_value > 125:
+            print "e_code : ",e_code
+            print "e_type : ",e_code
+            print "e_value : ",e_value
+
+    # Stick 1 G<->D Analogique
+    if e_code == 0:
         if e_value != 0 :
             if e_value < 115 or e_value > 125:
-                print "e_code : ",e_code
-                print "e_type : ",e_code
-                print "e_value : ",e_value
+                valPerc = (e_value / 255.)*1.
+                print "Stick 1 G<->D : ",valPerc
 
     # Stick 1 H<->B Analogique
     if e_code == 1 :
@@ -39,12 +45,11 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             valPerc = (e_value / 255.)*1.
             print "Stick 1 H<->B : ",valPerc
 
-    # Stick 1 G<->D Analogique
-    if e_code == 0:
-        if e_value != 0 :
-            if e_value < 115 or e_value > 125:
-                valPerc = (e_value / 255.)*1.
-                print "Stick 1 G<->D : ",valPerc
+    # Stick 2 H<->B Analogique
+    if e_code == 2:
+        if e_value < 115 or e_value > 125:
+            valPerc = (e_value / 255.)*1.
+            print "Stick 2 H<->B : ",valPerc
 
     # Stick 2 G<->D Analogique
     if e_code == 3:
@@ -52,11 +57,19 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             valPerc = (e_value / 255.)*1.
             print "Stick 2 G<->D : ",valPerc
 
-    # Stick 2 H<->B Analogique
-    if e_code == 2:
-        if e_value < 115 or e_value > 125:
-            valPerc = (e_value / 255.)*1.
-            print "Stick 2 H<->B : ",valPerc
+    # Cross Up/Down
+    if e_code == 17:
+        if e_value == -1:
+            print "Up Cross"
+        if e_value == 1:
+            print "Down Cross"
+
+    # Cross Left/Right
+    if e_code == 16:
+        if e_value == -1:
+            print "Left Cross"
+        if e_value == 1:
+            print "Right Cross"
 
     # L1
     if e_code == 292:
