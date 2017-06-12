@@ -23,7 +23,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    if e_code != 1 and e_code != 2 and e_code != 3 and e_code != 4:
+    if e_code != 0 and e_code != 1 and e_code != 2 and e_code != 3 and e_code != 4:
         print "e_code : ",e_code
         print "e_value : ",e_value
 
