@@ -71,6 +71,48 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if e_value == 1:
             print "Right Cross"
 
+    # Btn 1
+    if e_code == 288:
+        if e_value == 0:
+            print "Btn 1 release"
+        if e_value == 1:
+            print "Btn 1 pressed"
+
+    # Btn 2
+    if e_code == 289:
+        if e_value == 0:
+            print "Btn 2 release"
+        if e_value == 1:
+            print "Btn 2 pressed"
+
+    # Btn 3
+    if e_code == 290:
+        if e_value == 0:
+            print "Btn 3 release"
+        if e_value == 1:
+            print "Btn 3 pressed"
+
+    # Btn 3
+    if e_code == 291:
+        if e_value == 0:
+            print "Btn 4 release"
+        if e_value == 1:
+            print "Btn 4 pressed"
+
+    # Btn Select
+    if e_code == 296:
+        if e_value == 0:
+            print "Btn Select release"
+        if e_value == 1:
+            print "Btn Select pressed"
+
+    # Btn Select
+    if e_code == 297:
+        if e_value == 0:
+            print "Btn Start release"
+        if e_value == 1:
+            print "Btn Start pressed"
+
     # L1
     if e_code == 292:
         print "L1 : ",e_value
