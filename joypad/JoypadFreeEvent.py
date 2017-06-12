@@ -35,7 +35,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             print "Stick 1 D<>G : ",valPerc
 
     # Stick 2 D<->G
-    if e_code == 1:
+    if e_code == 0:
         if e_value < 120 or e_value > 120:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 D<>G : ",valPerc
