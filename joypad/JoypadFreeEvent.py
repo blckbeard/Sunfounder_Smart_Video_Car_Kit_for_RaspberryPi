@@ -54,7 +54,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             print "Stick 2 H<->B : ",valPerc
 
     # Stick 2 G<->D Analogique
-    if e_code == 3:
+    if e_code == 4:
         if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 G<->D : ",valPerc
