@@ -23,36 +23,34 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    if e_code != 0 and e_code != 1 and e_code != 4 and e_code != 2 and e_code != 5:
+    exclude = [0,1,2,3,4]
+    if e_code not in exclude:
         print "e_code : ",e_code
         print "e_value : ",e_value
-
-
-
 
     # Stick 1 H<->B
     if e_code == 1:
         #print "Stick 1 H<->B e_value : ",e_value
         # range : 21 - 210
-        if e_value < 118 or e_value > 124:
+        if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
             print "Stick 1 H<->B : ",valPerc
 
     # Stick 2 G<->D
     if e_code == 4:
-        if e_value < 118 or e_value > 124:
+        if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 G<->D : ",valPerc
 
     # Stick 1 G<->D
     if e_code == 2:
-        if e_value < 118 or e_value > 124:
+        if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
             print "Stick 1 G<->D : ",valPerc
 
     # Stick 2 H<->B
-    if e_code == 5:
-        if e_value < 118 or e_value > 124:
+    if e_code == 3:
+        if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
             print "Stick 2 H<->B : ",valPerc
 
