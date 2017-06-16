@@ -39,11 +39,10 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    mutePrint = True
+    mutePrint = False
     exclude = [2,4]
     filterKey = [0,1,3,5]
 
-    
     if e_value != 0:
         if e_code not in exclude:
             if e_code in filterKey:
