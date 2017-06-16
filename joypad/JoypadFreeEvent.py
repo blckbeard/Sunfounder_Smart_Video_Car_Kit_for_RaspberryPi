@@ -20,9 +20,10 @@ pwm.start(rapport)
 #def
 def getAllValue(dev):
     # The select() call will block until there are events on dev_obj.
-    r, w, x = select([dev], [], [])
-    for event in dev.read():
-        yield event
+    #r, w, x = select([dev], [], [])
+    #for event in dev.read():
+    #    yield event
+    print dev.capabilities(verbose=True)
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
@@ -122,8 +123,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if e_value == 0:
             print "Btn Start release"
             gen = getAllValue(dev)
-            for i in gen:
-                print(i)
+            # i in gen:
+            #    print(i)
         if e_value == 1:
             print "Btn Start pressed"
 
