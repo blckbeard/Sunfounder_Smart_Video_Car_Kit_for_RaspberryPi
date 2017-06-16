@@ -27,23 +27,6 @@ def getAllValue(dev):
 dev = InputDevice('/dev/input/event0')
 print "device :",dev
 
-
-# A mapping of file descriptors (integers) to InputDevice instances.
-#devices = map(InputDevice, ('/dev/input/event1', '/dev/input/event2'))
-devices = {dev.fd: dev}
-
-for dev in devices.values(): print(dev)
-
-while True:
-    r, w, x = select(devices, [], [])
-    for fd in r:
-        for event in devices[fd].read():
-            print(event)
-
-
-
-
-
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
@@ -54,16 +37,16 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if mutePrint :
         if e_code not in exclude:
             if e_value < 115 or e_value > 125:
-                print "e_code : ",e_code
-                print "e_type : ",e_code
-                print "e_value : ",e_value
-                #print(categorize(event))
+                print "e_code :",e_code
+                print "e_type :",e_code
+                print "e_value :",e_value
+
     # Stick 1 G<->D Analogique
     if e_code == 0:
         if e_value != 0 :
             if e_value < 115 or e_value > 125:
                 valPerc = (e_value / 255.)*1.
-                print "Stick 1 G<->D : ",valPerc
+                print "e :",e_code,"|","Stick 1 G<->D :",valPerc
 
     # Stick 1 H<->B Analogique
     if e_code == 1 :
@@ -71,19 +54,19 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         # range : 21 - 210
         if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
-            print "Stick 1 H<->B : ",valPerc
+            print "Stick 1 H<->B :",valPerc
 
     # Stick 2 H<->B Analogique
     if e_code == 5:
         if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
-            print "Stick 2 H<->B : ",valPerc
+            print "Stick 2 H<->B :",valPerc
 
     # Stick 2 G<->D Analogique
     if e_code == 3:
         if e_value < 115 or e_value > 125:
             valPerc = (e_value / 255.)*1.
-            print "Stick 2 G<->D : ",valPerc
+            print "Stick 2 G<->D :",valPerc
 
     # Cross Up/Down
     if e_code == 17:
@@ -147,18 +130,18 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
     # L1
     if e_code == 292:
-        print "L1 : ",e_value
+        print "L1 :",e_value
 
     # L2
     if e_code == 294:
-        print "L2 : ",e_value
+        print "L2 :",e_value
 
     # R1
     if e_code == 293:
-        print "R1 : ",e_value
+        print "R1 :",e_value
 
     # R2
     if e_code == 295:
-        print "R2 : ",e_value
+        print "R2 :",e_value
 
 
