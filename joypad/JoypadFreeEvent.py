@@ -18,7 +18,7 @@ pwm.start(rapport)
 #def
 def getAllValue(dev):
     for event in dev.read():
-        yield "Read Event : ",event
+        yield event
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
