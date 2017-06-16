@@ -41,6 +41,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if e_value != 0 :
             if e_value < 125 or e_value > 125:
                 valPerc = (e_value / 255.)*1.
+                if mutePrint: print "val :",e_value
                 if mutePrint: print "e :",e_code,"|","Stick 1 G<->D :",valPerc
 
     # Stick 1 H<->B Analogique
