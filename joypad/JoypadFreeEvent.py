@@ -17,12 +17,10 @@ pwm.start(rapport)
 
 #def
 def getAllValue(dev):
-(
     # get e_code == 0 - Stick 1 G<->D
     print "Stick 1 G<->D value is : ",dev.ecodes.KEY[0]
     # get e_code == 1 - Stick 1 H<->B
     print "Stick 1 H<->B value is : ",dev.ecodes.KEY[1]
-)
 
 
 # Get Joypad
