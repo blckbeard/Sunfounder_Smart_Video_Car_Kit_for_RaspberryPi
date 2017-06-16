@@ -38,10 +38,10 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if mutePrint :
         if e_code not in exclude:
             if e_value < 115 or e_value > 125:
-                print "e_code : ",e_code
-                print "e_type : ",e_code
-                print "e_value : ",e_value
-    print(categorize(event))
+                #print "e_code : ",e_code
+                #print "e_type : ",e_code
+                #print "e_value : ",e_value
+                print(categorize(event))
     # Stick 1 G<->D Analogique
     if e_code == 0:
         if e_value != 0 :
