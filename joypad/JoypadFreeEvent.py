@@ -9,17 +9,6 @@ import os, sys, socket
 import RPi.GPIO as GPIO
 
 #def
-def getAllValue(dev):
-    # The select() call will block until there are events on dev_obj.
-    #r, w, x = select([dev], [], [])
-    foo = []
-    try:
-        for event in dev.read():
-            print event
-            foo.append(event)
-        return foo
-    except IOError:
-        pass
     
 
 # Get Joypad
@@ -27,6 +16,11 @@ def getAllValue(dev):
 dev = InputDevice('/dev/input/event0')
 print "device :",dev
 
+#device dict
+devDict = {
+    "stickH":0,
+    "stickV":0,
+}
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
@@ -36,8 +30,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     exclude = [0]
     if mutePrint :
         if e_code not in exclude:
-            if e_value < 115 or e_value > 125:
-                print "e_code :",e_code
+            if e_value < 125 or e_value > 125:
+                if mutePrint: print "e_code :",e_code
                 print "e_type :",e_code
                 print "e_value :",e_value
 
@@ -121,10 +115,6 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 297:
         if e_value == 0:
             print "Btn Start release"
-            gen = getAllValue(dev)
-            print gen
-            for i in gen:
-                print("i",i)
         if e_value == 1:
             print "Btn Start pressed"
 
