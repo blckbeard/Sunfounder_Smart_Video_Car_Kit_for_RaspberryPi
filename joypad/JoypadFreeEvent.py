@@ -26,6 +26,24 @@ def getAllValue(dev):
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
 print "device :",dev
+
+
+# A mapping of file descriptors (integers) to InputDevice instances.
+#devices = map(InputDevice, ('/dev/input/event1', '/dev/input/event2'))
+devices = {dev.fd: dev}
+
+for dev in devices.values(): print(dev)
+
+while True:
+    r, w, x = select(devices, [], [])
+    for fd in r:
+        for event in devices[fd].read():
+            print(event)
+
+
+
+
+
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
