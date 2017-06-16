@@ -18,7 +18,7 @@ pwm.start(rapport)
 #def
 def getAllValue(dev):
     for event in dev.read():
-        print "Read Event : ",event
+        yield "Read Event : ",event
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
@@ -117,7 +117,9 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 297:
         if e_value == 0:
             print "Btn Start release"
-            getAllValue(dev)
+            gen = getAllValue(dev)
+            for i in gen:
+                print i
         if e_value == 1:
             print "Btn Start pressed"
 
