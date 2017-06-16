@@ -12,10 +12,12 @@ import RPi.GPIO as GPIO
 def getAllValue(dev):
     # The select() call will block until there are events on dev_obj.
     #r, w, x = select([dev], [], [])
+    foo = []
     try:
         for event in dev.read():
             print event
-            yield event
+            foo.append(event)
+        return foo
     except IOError:
         pass
     
