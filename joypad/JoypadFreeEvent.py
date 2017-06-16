@@ -1,6 +1,8 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
 from evdev import InputDevice, categorize, ecodes
+from select import select
+
 from time import sleep
 from datetime import date
 import os, sys, socket
@@ -17,6 +19,8 @@ pwm.start(rapport)
 
 #def
 def getAllValue(dev):
+    # The select() call will block until there are events on dev_obj.
+    r, w, x = select([dev], [], [])
     for event in dev.read():
         yield event
 
@@ -119,7 +123,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             print "Btn Start release"
             gen = getAllValue(dev)
             for i in gen:
-                print i
+                print(i)
         if e_value == 1:
             print "Btn Start pressed"
 
