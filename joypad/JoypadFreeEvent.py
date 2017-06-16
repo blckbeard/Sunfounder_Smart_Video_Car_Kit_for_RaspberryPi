@@ -23,7 +23,7 @@ def getAllValue(dev):
     #r, w, x = select([dev], [], [])
     #for event in dev.read():
     #    yield event
-    yield dev.capabilities()
+    return dev.capabilities()
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
