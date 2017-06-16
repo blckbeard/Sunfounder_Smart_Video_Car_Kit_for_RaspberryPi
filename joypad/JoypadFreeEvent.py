@@ -27,8 +27,10 @@ print "device :",dev
 
 #device dict
 devDict = {
-    "stickH":0,
-    "stickV":0,
+    "stick1H":0,
+    "stick1V":0,
+    "stick2H":0,
+    "stick2V":0
 }
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
@@ -50,26 +52,18 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     # Stick 1 R<->L Analogique 
     if e_code == 0:
         if e_value != 0 :
-            devDict['stickH'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
+            devDict['stick1H'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
     # Stick 1 H<->B Analogique
     if e_code == 1 :
-        #print "Stick 1 H<->B e_value : ",e_value
-        # range : 21 - 210
-        devDict['stickV'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
-        #valPerc = (e_value / 255.)*1.
-        #print "Stick 1 H<->B :",valPerc
-
-    # Stick 2 H<->B Analogique
-    if e_code == 5:
-        if e_value < 115 or e_value > 125:
-            valPerc = (e_value / 255.)*1.
-            print "Stick 2 H<->B :",valPerc
+        devDict['stick1V'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
 
     # Stick 2 G<->D Analogique
     if e_code == 3:
-        if e_value < 115 or e_value > 125:
-            valPerc = (e_value / 255.)*1.
-            print "Stick 2 G<->D :",valPerc
+        devDict['stick2H'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
+
+    # Stick 2 H<->B Analogique
+    if e_code == 5:
+        devDict['stick2V'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
 
     # Cross Up/Down
     if e_code == 17:
