@@ -17,11 +17,8 @@ pwm.start(rapport)
 
 #def
 def getAllValue(dev):
-    # get e_code == 0 - Stick 1 G<->D
-    print "Read Event : ",dev.read()
-    # get e_code == 1 - Stick 1 H<->B
-    #print "Stick 1 H<->B value is : ",dev.ecodes.KEY[1]
-
+    for event in self.dev.read():
+        print "Read Event : "event
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
