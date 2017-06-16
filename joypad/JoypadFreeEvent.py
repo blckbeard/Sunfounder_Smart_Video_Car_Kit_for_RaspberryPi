@@ -30,7 +30,9 @@ devDict = {
     "stick1H":0,
     "stick1V":0,
     "stick2H":0,
-    "stick2V":0
+    "stick2V":0,
+    "crossU":0,
+    "crossD":0,
 }
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
@@ -48,7 +50,11 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                 if mutePrint: print "e_type :",e_code
                 if mutePrint: print "e_value :",e_value
                 print "devDict :",devDict
-
+        else:
+            if mutePrint: print "e_code :",e_code
+            if mutePrint: print "e_type :",e_code
+            if mutePrint: print "e_value :",e_value
+            print "devDict :",devDict
     # Stick 1 R<->L Analogique 
     if e_code == 0:
         if e_value != 0 :
