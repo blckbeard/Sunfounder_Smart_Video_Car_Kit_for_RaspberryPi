@@ -16,7 +16,7 @@ rapport = 7       # rapport cyclique initial de 7%
 pwm.start(rapport)
 
 #def
-def getAllValue(dev)=
+def getAllValue(dev):
 (
     # get e_code == 0 - Stick 1 G<->D
     print "Stick 1 G<->D value is : ",dev.ecodes.KEY[0]
