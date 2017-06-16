@@ -26,7 +26,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    mutePrint = True
+    mutePrint = False
     exclude = [0]
     '''
     if mutePrint :
@@ -44,22 +44,23 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             if mutePrint: print "e :",e_code
             if mutePrint: print "val :",e_value
             if mutePrint: print "valPerc :",valPerc
+
         else:
             valPerc = 0 #(mid / 255.)*1.
             if mutePrint: print "e :",e_code
             if mutePrint: print "val :",mid
             if mutePrint: print "valPerc :",valPerc
+        return valPerc
 
     # Stick 1 R<->L Analogique 
     if e_code == 0:
         if e_value != 0 :
-            analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
-
+            devDict['stickH'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
     # Stick 1 H<->B Analogique
     if e_code == 1 :
         #print "Stick 1 H<->B e_value : ",e_value
         # range : 21 - 210
-        analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
+        devDict['stickV'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
         #valPerc = (e_value / 255.)*1.
         #print "Stick 1 H<->B :",valPerc
 
@@ -147,4 +148,5 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 295:
         print "R2 :",e_value
 
+    print "devDict :",devDict
 
