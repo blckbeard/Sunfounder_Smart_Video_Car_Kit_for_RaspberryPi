@@ -37,16 +37,23 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                 if mutePrint: print "e_value :",e_value
     '''
     # Stick 1 G<->D Analogique
-    def analogicStick(e_code,e_type,e_value,mutePrint=False):
-        valPerc = (e_value / 255.)*1.
-        if mutePrint: print "e :",e_code
-        if mutePrint: print "val :",e_value
-        if mutePrint: print "valPerc :",valPerc
+    def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
+        if e_value < mid or e_value > mid:
+            valPerc = (e_value / 255.)*1.
+            if mutePrint: print "e :",e_code
+            if mutePrint: print "val :",e_value
+            if mutePrint: print "valPerc :",valPerc
+        else:
+            valPerc = (mid / 255.)*1.
+            if mutePrint: print "e :",e_code
+            if mutePrint: print "val :",mid
+            if mutePrint: print "valPerc :",valPerc
         
     if e_code == 0:
         if e_value != 0 :
-            if e_value < 128 or e_value > 128:
-                analogicStick(e_code,e_type,e_value,mutePrint=mutePrint)
+
+                analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
+            else 
     # Stick 1 H<->B Analogique
     if e_code == 1 :
         #print "Stick 1 H<->B e_value : ",e_value
