@@ -9,7 +9,16 @@ import os, sys, socket
 import RPi.GPIO as GPIO
 
 #def
-    
+def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
+    if e_value < mid or e_value > mid:
+        valPerc = (e_value - 128)/128. #(e_value / 255.)*1.
+    else:
+        e_value = mid
+        valPerc = 0 #(mid / 255.)*1.
+    if mutePrint: print "e :",e_code
+    if mutePrint: print "val :",e_value
+    if mutePrint: print "valPerc :",valPerc
+    return valPerc
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
@@ -28,29 +37,14 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_value=event.value
     mutePrint = False
     exclude = [0]
-    '''
-    if mutePrint :
-        if e_code not in exclude:
-            if e_value < 125 or e_value > 125:
+
+    if e_code not in exclude:
+        if e_value != 0:
+            if e_value < 128 or e_value > 128
                 if mutePrint: print "e_code :",e_code
                 if mutePrint: print "e_type :",e_code
                 if mutePrint: print "e_value :",e_value
-    '''
-    # Stick 1 G<->D Analogique
-    def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
-        if e_value < mid or e_value > mid:
-            valPerc = (e_value - 128)/128.
-            #valPerc = (e_value / 255.)*1.
-            if mutePrint: print "e :",e_code
-            if mutePrint: print "val :",e_value
-            if mutePrint: print "valPerc :",valPerc
-
-        else:
-            valPerc = 0 #(mid / 255.)*1.
-            if mutePrint: print "e :",e_code
-            if mutePrint: print "val :",mid
-            if mutePrint: print "valPerc :",valPerc
-        return valPerc
+                print "devDict :",devDict
 
     # Stick 1 R<->L Analogique 
     if e_code == 0:
@@ -148,5 +142,5 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 295:
         print "R2 :",e_value
 
-    print "devDict :",devDict
+    
 
