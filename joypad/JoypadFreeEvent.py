@@ -25,6 +25,7 @@ def getAllValue(dev):
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
+print "device :",dev
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
