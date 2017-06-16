@@ -40,21 +40,23 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_type=event.type
     e_value=event.value
     mutePrint = True
-    exclude = [0,1,3,5]
+    exclude = [2,4]
+    filterKey = [0,1,3,5]
 
     
     if e_value != 0:
-        if e_code in exclude:
-            if e_value < 127.99 or e_value > 128.01:
+        if e_code not in exclude:
+            if e_code in filterKey:
+                if e_value < 127.99 or e_value > 128.01:
+                    if mutePrint: print "e_code :",e_code
+                    if mutePrint: print "e_type :",e_code
+                    if mutePrint: print "e_value :",e_value
+                    print "devDict :",devDict
+            else:
                 if mutePrint: print "e_code :",e_code
                 if mutePrint: print "e_type :",e_code
                 if mutePrint: print "e_value :",e_value
                 print "devDict :",devDict
-        else:
-            if mutePrint: print "e_code :",e_code
-            if mutePrint: print "e_type :",e_code
-            if mutePrint: print "e_value :",e_value
-            print "devDict :",devDict
     # Stick 1 R<->L Analogique 
     if e_code == 0:
         if e_value != 0 :
