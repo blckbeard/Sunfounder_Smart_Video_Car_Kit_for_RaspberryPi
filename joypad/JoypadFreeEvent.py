@@ -122,6 +122,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 297:
         if e_value == 0:
             print "Btn Start release"
+            getAllValue(dev)
         if e_value == 1:
             print "Btn Start pressed"
 
