@@ -41,7 +41,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                 print "e_code : ",e_code
                 print "e_type : ",e_code
                 print "e_value : ",e_value
-
+    print(categorize(event))
     # Stick 1 G<->D Analogique
     if e_code == 0:
         if e_value != 0 :
@@ -122,9 +122,9 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 297:
         if e_value == 0:
             print "Btn Start release"
-            gen = getAllValue(dev)
-            for k,v in gen.iteritems():
-                print(k,v)
+            #gen = getAllValue(dev)
+            #for k,v in gen.iteritems():
+                #print(k,v)
         if e_value == 1:
             print "Btn Start pressed"
 
