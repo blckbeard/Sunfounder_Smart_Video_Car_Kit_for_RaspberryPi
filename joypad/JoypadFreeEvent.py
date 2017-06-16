@@ -8,22 +8,16 @@ from datetime import date
 import os, sys, socket
 import RPi.GPIO as GPIO
 
-# configure servo
-''' 2.5 - 7.15 - 11.8 '''
-servo_pin = 12  # equivalent de GPIO 18
-GPIO.setmode(GPIO.BOARD)  # notation board plutôt que BCM
-GPIO.setup(servo_pin, GPIO.OUT)  # pin configuree en sortie
-pwm = GPIO.PWM(servo_pin, 50)  # pwm à une fréquence de 50 Hz
-rapport = 7       # rapport cyclique initial de 7%
-pwm.start(rapport)
-
 #def
 def getAllValue(dev):
     # The select() call will block until there are events on dev_obj.
     #r, w, x = select([dev], [], [])
-    #for event in dev.read():
-    #    yield event
-    return dev.capabilities()
+    try:
+        for event in dev.read():
+            yield event
+    except IOError:
+        pass
+    
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
@@ -38,10 +32,10 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if mutePrint :
         if e_code not in exclude:
             if e_value < 115 or e_value > 125:
-                #print "e_code : ",e_code
-                #print "e_type : ",e_code
-                #print "e_value : ",e_value
-                print(categorize(event))
+                print "e_code : ",e_code
+                print "e_type : ",e_code
+                print "e_value : ",e_value
+                #print(categorize(event))
     # Stick 1 G<->D Analogique
     if e_code == 0:
         if e_value != 0 :
@@ -122,7 +116,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 297:
         if e_value == 0:
             print "Btn Start release"
-            #gen = getAllValue(dev)
+            gen = getAllValue(dev)
+            print gen
             #for k,v in gen.iteritems():
                 #print(k,v)
         if e_value == 1:
