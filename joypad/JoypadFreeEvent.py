@@ -15,6 +15,16 @@ pwm = GPIO.PWM(servo_pin, 50)  # pwm à une fréquence de 50 Hz
 rapport = 7       # rapport cyclique initial de 7%
 pwm.start(rapport)
 
+#def
+def getAllValue(dev)=
+(
+    # get e_code == 0 - Stick 1 G<->D
+    print "Stick 1 G<->D value is : ",dev.ecodes.KEY[0]
+    # get e_code == 1 - Stick 1 H<->B
+    print "Stick 1 H<->B value is : ",dev.ecodes.KEY[1]
+)
+
+
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
