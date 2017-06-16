@@ -44,8 +44,9 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if mutePrint: print "valPerc :",valPerc
         
     if e_code == 0:
-        if e_value < 125 or e_value > 125:
-            analogicStick(e_code,e_type,e_value,mutePrint=mutePrint)
+        if e_value != 0 :
+            if e_value < 125 or e_value > 125:
+                analogicStick(e_code,e_type,e_value,mutePrint=mutePrint)
     # Stick 1 H<->B Analogique
     if e_code == 1 :
         #print "Stick 1 H<->B e_value : ",e_value
