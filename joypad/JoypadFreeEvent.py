@@ -27,7 +27,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_code=event.code
     e_type=event.type
     e_value=event.value
-    mutePrint = True
+    mutePrint = False
     exclude = [0]
     if mutePrint :
         if e_code not in exclude:
@@ -118,8 +118,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
             print "Btn Start release"
             gen = getAllValue(dev)
             print gen
-            #for k,v in gen.iteritems():
-                #print(k,v)
+            for i in gen:
+                print(i)
         if e_value == 1:
             print "Btn Start pressed"
 
