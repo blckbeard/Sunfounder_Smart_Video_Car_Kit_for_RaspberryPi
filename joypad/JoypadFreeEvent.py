@@ -36,11 +36,12 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_type=event.type
     e_value=event.value
     mutePrint = False
-    exclude = [0]
+    exclude = [0,1,3,5]
 
-    if e_code not in exclude:
-        if e_value != 0:
-            if e_value < 128 or e_value > 128:
+    
+    if e_value != 0:
+        if e_code in exclude:
+            if e_value < 127 or e_value > 129:
                 if mutePrint: print "e_code :",e_code
                 if mutePrint: print "e_type :",e_code
                 if mutePrint: print "e_value :",e_value
