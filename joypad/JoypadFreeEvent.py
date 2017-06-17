@@ -137,6 +137,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
     # send devDict
     #if e_value != 0:
+    print "e_code :",e_code
     if e_code not in exclude:
         if e_value != 0:
             if e_code in filterAnalogic:
