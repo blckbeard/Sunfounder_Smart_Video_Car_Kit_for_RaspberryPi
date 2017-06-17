@@ -136,20 +136,20 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         devDict['R2']=e_value
 
     # send devDict
-    if e_value != 0:
-        if e_code not in exclude:
-            if e_code in filterAnalogic:
-                if e_value < 127.99 or e_value > 128.01:
-                    sendDevDict(devDict)
-            elif e_code in filterCross:
+    #if e_value != 0:
+    if e_code not in exclude:
+        if e_code in filterAnalogic:
+            if e_value < 127.99 or e_value > 128.01:
                 sendDevDict(devDict)
-                if e_code == 17 :
-                    devDict['crossUpDown']=0
-                if e_code == 16 :
-                    devDict['crossLR']=0
-                sendDevDict(devDict)
-            else:
-                if mutePrint: print "e_code :",e_code
-                if mutePrint: print "e_type :",e_code
-                if mutePrint: print "e_value :",e_value
-                sendDevDict(devDict)
+        elif e_code in filterCross:
+            sendDevDict(devDict)
+            if e_code == 17 :
+                devDict['crossUpDown']=0
+            if e_code == 16 :
+                devDict['crossLR']=0
+            sendDevDict(devDict)
+        else:
+            if mutePrint: print "e_code :",e_code
+            if mutePrint: print "e_type :",e_code
+            if mutePrint: print "e_value :",e_value
+            sendDevDict(devDict)
