@@ -22,6 +22,7 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
 
 def sendDevDict(devDict):
     print "devDict :",devDict
+
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
@@ -34,7 +35,7 @@ devDict = {
     "stick2H":0,
     "stick2V":0,
     "crossUpDown":0,
-    "crossLR":0,
+    "crossLR":0
 }
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
