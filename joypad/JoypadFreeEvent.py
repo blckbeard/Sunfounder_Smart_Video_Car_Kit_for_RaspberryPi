@@ -30,12 +30,22 @@ print "device :",dev
 
 #device dict
 devDict = {
-    "stick1H":0,
-    "stick1V":0,
-    "stick2H":0,
-    "stick2V":0,
-    "crossUpDown":0,
-    "crossLR":0
+    'stick1H':0,
+    'stick1V':0,
+    'stick2H':0,
+    'stick2V':0,
+    'crossUpDown':0,
+    'crossLR':0,
+    'btn1':0,
+    'btn2':0,
+    'btn3':0,
+    'btn4':0,
+    'btnSelect':0,
+    'btnStart':0,
+    'L1':0,
+    'L2':0,
+    'R1':0,
+    'R2':0
 }
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
@@ -65,78 +75,64 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
     # Cross Up/Down
     if e_code == 17:
-        if e_value == -1:
-            print "Up Cross"
-            devDict['crossUpDown']=-1
-        if e_value == 1:
-            print "Down Cross"
-            devDict['crossUpDown']=1
+        # Up -> -1    Down -> 1
+        #print "Up/Down Cross :",e_value
+        devDict['crossUpDown']=e_value
 
     # Cross Left/Right
     if e_code == 16:
-        if e_value == -1:
-            print "Left Cross"
-            devDict['crossLR']=-1
-        if e_value == 1:
-            print "Right Cross"
-            devDict['crossLR']=1
+        # L -> -1    R -> 1
+        #print "Left/Right Cross :",e_value
+        devDict['crossLR']=e_value
+
     # Btn 1
     if e_code == 288:
-        if e_value == 0:
-            print "Btn 1 release"
-        if e_value == 1:
-            print "Btn 1 pressed"
+        #print "Btn 1 :",e_value
+        devDict['btn1']=e_value
 
     # Btn 2
     if e_code == 289:
-        if e_value == 0:
-            print "Btn 2 release"
-        if e_value == 1:
-            print "Btn 2 pressed"
+        #print "Btn 2 :",e_value
+        devDict['btn2']=e_value
 
     # Btn 3
     if e_code == 290:
-        if e_value == 0:
-            print "Btn 3 release"
-        if e_value == 1:
-            print "Btn 3 pressed"
+        #print "Btn 3 :",e_value
+        devDict['btn3']=e_value
 
-    # Btn 3
+    # Btn 4
     if e_code == 291:
-        if e_value == 0:
-            print "Btn 4 release"
-        if e_value == 1:
-            print "Btn 4 pressed"
+        #print "Btn 4 :",e_value
+        devDict['btn4']=e_value
 
     # Btn Select
     if e_code == 296:
-        if e_value == 0:
-            print "Btn Select release"
-        if e_value == 1:
-            print "Btn Select pressed"
+        #print "Btn Select :",e_value
+        devDict['btnSelect']=e_value
 
     # Btn Select
     if e_code == 297:
-        if e_value == 0:
-            print "Btn Start release"
-        if e_value == 1:
-            print "Btn Start pressed"
+        #print "Btn Start :",e_value
+        devDict['btnStart']=e_value
 
     # L1
     if e_code == 292:
-        print "L1 :",e_value
+        #print "L1 :",e_value
+        devDict['L1']=e_value
 
     # L2
     if e_code == 294:
-        print "L2 :",e_value
+        #print "L2 :",e_value
+        devDict['L2']=e_value
 
     # R1
     if e_code == 293:
-        print "R1 :",e_value
-
+        #print "R1 :",e_value
+        devDict['R1']=e_value
     # R2
     if e_code == 295:
-        print "R2 :",e_value
+        #print "R2 :",e_value
+        devDict['R2']=e_value
 
     # send devDict
     if e_value != 0:
