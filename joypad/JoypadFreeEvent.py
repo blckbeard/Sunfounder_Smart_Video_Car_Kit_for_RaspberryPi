@@ -20,6 +20,8 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     if mutePrint: print "valPerc :",valPerc
     return valPerc
 
+def sendDevDict(devDict):
+    print "devDict :",devDict
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
@@ -31,8 +33,8 @@ devDict = {
     "stick1V":0,
     "stick2H":0,
     "stick2V":0,
-    "crossU":0,
-    "crossD":0,
+    "crossUpDown":0,
+    "crossLR":0,
 }
 # reprendre le meme identifiant "event"
 for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
@@ -50,12 +52,17 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                     if mutePrint: print "e_code :",e_code
                     if mutePrint: print "e_type :",e_code
                     if mutePrint: print "e_value :",e_value
-                    print "devDict :",devDict
+                    sendDevDict(devDict)
+            elif e_code in [17,16]:
+                sendDevDict(devDict)
+                if e_code == 17 : devDict['crossUpDown']=0
+                if e_code == 16 : devDict['crossLR']=0
+                sendDevDict(devDict)
             else:
                 if mutePrint: print "e_code :",e_code
                 if mutePrint: print "e_type :",e_code
                 if mutePrint: print "e_value :",e_value
-                print "devDict :",devDict
+                sendDevDict(devDict)
     # Stick 1 R<->L Analogique 
     if e_code == 0:
         if e_value != 0 :
@@ -76,16 +83,19 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 17:
         if e_value == -1:
             print "Up Cross"
+            devDict['crossUpDown']=-1
         if e_value == 1:
             print "Down Cross"
+            devDict['crossUpDown']=1
 
     # Cross Left/Right
     if e_code == 16:
         if e_value == -1:
             print "Left Cross"
+            devDict['crossLR']=-1
         if e_value == 1:
             print "Right Cross"
-
+            devDict['crossLR']=1
     # Btn 1
     if e_code == 288:
         if e_value == 0:
