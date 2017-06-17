@@ -138,13 +138,14 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     # send devDict
     #if e_value != 0:
     if e_code not in exclude:
-        print "e_code :",e_code
         if e_code in filterAnalogic:
             if e_value < 127.99 or e_value > 128.01:
                 print "debug1"
+                print "e_code :",e_code
+                print "e_type :",e_code
+                print "e_value :",e_value
                 sendDevDict(devDict)
         elif e_code in filterCross:
-            print "debug2"
             sendDevDict(devDict)
             if e_code == 17 :
                 devDict['crossUpDown']=0
@@ -152,7 +153,6 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                 devDict['crossLR']=0
             sendDevDict(devDict)
         else:
-            print "debug3"
             if mutePrint: print "e_code :",e_code
             if mutePrint: print "e_type :",e_code
             if mutePrint: print "e_value :",e_value
