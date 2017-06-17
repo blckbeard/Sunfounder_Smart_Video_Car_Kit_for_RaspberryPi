@@ -78,62 +78,62 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     if e_code == 17:
         # Up -> -1    Down -> 1
         #print "Up/Down Cross :",e_value
-        devDict['crossUpDown']=e_value
+        devDict['crossUpDown']=int(e_value)
 
     # Cross Left/Right
     if e_code == 16:
         # L -> -1    R -> 1
         #print "Left/Right Cross :",e_value
-        devDict['crossLR']=e_value
+        devDict['crossLR']=int(e_value)
 
     # Btn 1
     if e_code == 288:
         #print "Btn 1 :",e_value
-        devDict['btn1']=e_value
+        devDict['btn1']=int(e_value)
 
     # Btn 2
     if e_code == 289:
         #print "Btn 2 :",e_value
-        devDict['btn2']=e_value
+        devDict['btn2']=int(e_value)
 
     # Btn 3
     if e_code == 290:
         #print "Btn 3 :",e_value
-        devDict['btn3']=e_value
+        devDict['btn3']=int(e_value)
 
     # Btn 4
     if e_code == 291:
         #print "Btn 4 :",e_value
-        devDict['btn4']=e_value
+        devDict['btn4']=int(e_value)
 
     # Btn Select
     if e_code == 296:
         #print "Btn Select :",e_value
-        devDict['btnSelect']=e_value
+        devDict['btnSelect']=int(e_value)
 
     # Btn Select
     if e_code == 297:
-        print "Btn Start :",e_value
-        devDict['btnStart']=e_value
+        #print "Btn Start :",e_value
+        devDict['btnStart']=int(e_value)
 
     # L1
     if e_code == 292:
         #print "L1 :",e_value
-        devDict['L1']=e_value
+        devDict['L1']=int(e_value)
 
     # L2
     if e_code == 294:
         #print "L2 :",e_value
-        devDict['L2']=e_value
+        devDict['L2']=int(e_value)
 
     # R1
     if e_code == 293:
         #print "R1 :",e_value
-        devDict['R1']=e_value
+        devDict['R1']=int(e_value)
     # R2
     if e_code == 295:
         #print "R2 :",e_value
-        devDict['R2']=e_value
+        devDict['R2']=int(e_value)
 
     # send devDict
     #if e_value != 0:
@@ -141,10 +141,6 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if e_code in filterAnalogic:
             if e_value < 127.99 or e_value > 128.01:
                 if e_value != 0:
-                    print "debug1"
-                    print "e_code :",e_code
-                    print "e_type :",e_code
-                    print "e_value :",e_value
                     sendDevDict(devDict)
         elif e_code in filterCross:
             sendDevDict(devDict)
