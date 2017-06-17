@@ -21,7 +21,7 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     return valPerc
 
 def sendDevDict(devDict):
-    print "devDict :",devDict
+    print "send devDict :",devDict
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
@@ -53,8 +53,10 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
                     sendDevDict(devDict)
             elif e_code in [17,16]:
                 sendDevDict(devDict)
-                if e_code == 17: devDict['crossUpDown']=0
-                if e_code == 16: devDict['crossLR']=0
+                if e_code == 17 :
+                    devDict['crossUpDown']=0
+                if e_code == 16 :
+                    devDict['crossLR']=0
                 sendDevDict(devDict)
             else:
                 if mutePrint: print "e_code :",e_code
