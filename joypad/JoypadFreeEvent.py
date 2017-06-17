@@ -54,7 +54,8 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     e_value=event.value
     mutePrint = False
     exclude = [2,4]
-    filterKey = [0,1,3,5]
+    filterAnalogic = [0,1,3,5]
+    filterCross = [17,16]
 
 
     # Stick 1 R<->L Analogique 
@@ -112,7 +113,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
 
     # Btn Select
     if e_code == 297:
-        #print "Btn Start :",e_value
+        print "Btn Start :",e_value
         devDict['btnStart']=e_value
 
     # L1
@@ -137,10 +138,10 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
     # send devDict
     if e_value != 0:
         if e_code not in exclude:
-            if e_code in filterKey:
+            if e_code in filterAnalogic:
                 if e_value < 127.99 or e_value > 128.01:
                     sendDevDict(devDict)
-            elif e_code in [17,16]:
+            elif e_code in filterCross:
                 sendDevDict(devDict)
                 if e_code == 17 :
                     devDict['crossUpDown']=0
