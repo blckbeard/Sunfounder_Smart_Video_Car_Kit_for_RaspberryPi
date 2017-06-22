@@ -32,7 +32,12 @@ def sendDevDict(devDict):
     msg = "send devDict :",devDict
     print msg
     #tcpCliSock.connect(ADDR)
-    serialized_dict = json.dumps(devDict)
+    lstVal = []
+    for o in devList:
+        lstVal.append(devDict[o])
+
+
+    serialized_dict = json.dumps(lstVal)
     print "serialized_dict :",serialized_dict
     tcpCliSock.send(serialized_dict)
     #tcpCliSock.close()
@@ -42,6 +47,25 @@ dev = InputDevice('/dev/input/event0')
 print "device :",dev
 
 #device dict
+devList = [
+    'stick1H',
+    'stick1V',
+    'stick2H',
+    'stick2V',
+    'crossUpDown',
+    'crossLR',
+    'btn1',
+    'btn2',
+    'btn3',
+    'btn4',
+    'btnSelect',
+    'btnStart',
+    'L1',
+    'L2',
+    'R1',
+    'R2'
+]
+
 devDict = {
     'stick1H':0,
     'stick1V':0,

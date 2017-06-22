@@ -22,6 +22,25 @@ tcpSerSock = socket(AF_INET, SOCK_STREAM)    # Create a socket.
 tcpSerSock.bind(ADDR)    # Bind the IP address and port number of the server. 
 tcpSerSock.listen(5)     # The parameter of listen() defines the number of connections permitted at one time. Once the 
                          # connections are full, others will be rejected. 
+
+devList = [
+    'stick1H',
+    'stick1V',
+    'stick2H',
+    'stick2V',
+    'crossUpDown',
+    'crossLR',
+    'btn1',
+    'btn2',
+    'btn3',
+    'btn4',
+    'btnSelect',
+    'btnStart',
+    'L1',
+    'L2',
+    'R1',
+    'R2'
+]
 '''
 video_dir.setup(busnum=busnum)
 car_dir.setup(busnum=busnum)
