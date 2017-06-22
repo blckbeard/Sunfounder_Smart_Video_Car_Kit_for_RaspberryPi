@@ -30,7 +30,7 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
 def sendDevDict(devDict):
     msg = "send devDict :",devDict
     print msg
-    tcpCliSock.send(msg)
+    tcpCliSock.send("hello world")
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
