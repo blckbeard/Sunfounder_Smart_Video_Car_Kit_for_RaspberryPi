@@ -38,7 +38,8 @@ while True:
 		data = ''
 		data = tcpCliSock.recv(BUFSIZ)    # Receive data sent from the client. 
 		# Analyze the command received and control the car accordingly.
-		print data
+		devDict = json.loads(data)
+		print devDict
 		'''
 		if not data:
 			break

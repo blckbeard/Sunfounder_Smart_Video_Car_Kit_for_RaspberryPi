@@ -1,6 +1,6 @@
 #!/usr/bin/python
 # -*- coding: latin-1 -*-
-import os, sys
+import os, sys, json
 
 from evdev import InputDevice, categorize, ecodes
 from select import select
@@ -28,9 +28,10 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     return valPerc
 
 def sendDevDict(devDict):
-    msg = "send devDict :",devDict
-    print msg
-    tcpCliSock.send("hello world")
+    # msg = "send devDict :",devDict
+    # print msg
+    serialized_dict = json.dumps(devDict)
+    tcpCliSock.send(serialized_dict)
 
 # Get Joypad
 ''' 0 - 133 - 255 '''
