@@ -13,7 +13,7 @@ BUFSIZ = 2048             # buffer size
 ADDR = (HOST, PORT)
 
 tcpCliSock = socket(AF_INET, SOCK_STREAM)   # Create a socket
-#tcpCliSock.connect(ADDR)
+tcpCliSock.connect(ADDR)
 
 #def
 def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
@@ -29,12 +29,12 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     return valPerc
 
 def sendDevDict(devDict):
-    # msg = "send devDict :",devDict
-    # print msg
-    tcpCliSock.connect(ADDR)
+    msg = "send devDict :",devDict
+    print msg
+    #tcpCliSock.connect(ADDR)
     serialized_dict = json.dumps(devDict)
     tcpCliSock.send(serialized_dict)
-    tcpCliSock.close()
+    #tcpCliSock.close()
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
