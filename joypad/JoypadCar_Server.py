@@ -15,7 +15,7 @@ busnum = 1          # Edit busnum to 0, if you uses Raspberry Pi 1 or 0
 
 HOST = ''           # The variable of HOST is null, so the function bind( ) can be bound to all valid addresses.
 PORT = 21567
-BUFSIZ = 2048       # Size of the buffer
+BUFSIZ = 1024       # Size of the buffer
 ADDR = (HOST, PORT)
 
 tcpSerSock = socket(AF_INET, SOCK_STREAM)    # Create a socket.
@@ -41,8 +41,7 @@ while True:
 		data = ''
 		data = tcpCliSock.recv(BUFSIZ)    # Receive data sent from the client. 
 		# Analyze the command received and control the car accordingly.
-		devDict = [json.loads(x) for x in data.split('\n')] #json.loads(data)
-		tcpCliSock.flush()
+		devDict = json.loads(data)
 		print devDict
 		'''
 		if not data:
