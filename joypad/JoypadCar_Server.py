@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/python
+# -*- coding: latin-1 -*-
+import os, sys, json
+
 import RPi.GPIO as GPIO
 
 from lib import video_dir
