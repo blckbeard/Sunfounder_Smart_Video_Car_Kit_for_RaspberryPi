@@ -63,7 +63,7 @@ while True:
 		#serialized_dict = json.loads(data)
 		print data
 		print type(data)
-		cleanData = str.replace("][", "],[")
+		cleanData = data.replace("][", "],[")
 		devDict = eval(cleanData[0])
 		print devDict
 		'''
