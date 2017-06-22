@@ -38,7 +38,7 @@ def sendDevDict(devDict):
 
 
     serialized_dict = str(lstVal) #json.dumps(lstVal)
-    print "serialized_dict :",serialized_dict
+    #print "serialized_dict :",serialized_dict
     tcpCliSock.send(serialized_dict)
     #tcpCliSock.close()
 # Get Joypad
