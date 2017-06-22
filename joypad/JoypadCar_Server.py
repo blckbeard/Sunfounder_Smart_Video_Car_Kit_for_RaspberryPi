@@ -64,7 +64,11 @@ while True:
 		print data
 		print type(data)
 		cleanData = data.replace("][", "],[")
-		devDict = eval(cleanData[0])
+		cleanData = eval(cleanData)
+		if type(cleanData) == str:
+			devDict = cleanData
+		elif type(cleanData)== list:
+			devDict = cleanData[0]
 		print devDict
 		'''
 		if not data:
