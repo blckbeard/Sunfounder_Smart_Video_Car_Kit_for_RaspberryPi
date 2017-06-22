@@ -19,13 +19,13 @@ tcpSerSock = socket(AF_INET, SOCK_STREAM)    # Create a socket.
 tcpSerSock.bind(ADDR)    # Bind the IP address and port number of the server. 
 tcpSerSock.listen(5)     # The parameter of listen() defines the number of connections permitted at one time. Once the 
                          # connections are full, others will be rejected. 
-
+'''
 video_dir.setup(busnum=busnum)
 car_dir.setup(busnum=busnum)
 motor.setup(busnum=busnum)     # Initialize the Raspberry Pi GPIO connected to the DC motor. 
 video_dir.home_x_y()
 car_dir.home()
-
+'''
 while True:
 	print 'Waiting for connection...'
 	# Waiting for connection. Once receiving a connection, the function accept() returns a separate 
