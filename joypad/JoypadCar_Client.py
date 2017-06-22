@@ -18,7 +18,8 @@ tcpCliSock.connect(ADDR)
 #def
 def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     if e_value < mid or e_value > mid:
-        valPerc = (e_value - 128)/128. #(e_value / 255.)*1.
+        val = (e_value - 128)/128. #(e_value / 255.)*1.
+        valPerc = round(val,2)
     else:
         e_value = mid
         valPerc = 0 #(mid / 255.)*1.
