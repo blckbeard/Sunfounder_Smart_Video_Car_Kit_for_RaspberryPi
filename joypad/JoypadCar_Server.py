@@ -64,6 +64,8 @@ while True:
 		print data
 		print type(data)
 		cleanData = data.split("][")[0]
+		if cleanData[-1] != "]":
+			cleanData = cleanData + "]"
 		#cleanData = data.replace("][", "],[")
 		devDict = eval(cleanData)
 		print devDict
