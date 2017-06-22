@@ -62,17 +62,18 @@ while True:
 		# Analyze the command received and control the car accordingly.
 		#serialized_dict = json.loads(data)
 		cleanData = data.split("][")[0]
-		if cleanData[-1] != "]":
-			cleanData = cleanData + "]"
-		if cleanData[0] == ",":
-			cleanData = cleanData[1:]
-		if cleanData[0] != "[":
-			cleanData = "[" + cleanData
-		#cleanData = data.replace("][", "],[")
-		print "cleanData :",cleanData
-		devDict = eval(cleanData)
-		if len(devDict) == 16:
-			print "verified devDict :",devDict
+		if len(cleanData)>0:
+			if cleanData[-1] != "]":
+				cleanData = cleanData + "]"
+			if cleanData[0] == ",":
+				cleanData = cleanData[1:]
+			if cleanData[0] != "[":
+				cleanData = "[" + cleanData
+			#cleanData = data.replace("][", "],[")
+			print "cleanData :",cleanData
+			devDict = eval(cleanData)
+			if len(devDict) == 16:
+				print "verified devDict :",devDict
 		'''
 		if not data:
 			break
