@@ -15,7 +15,7 @@ busnum = 1          # Edit busnum to 0, if you uses Raspberry Pi 1 or 0
 
 HOST = ''           # The variable of HOST is null, so the function bind( ) can be bound to all valid addresses.
 PORT = 21567
-BUFSIZ = 1024       # Size of the buffer
+BUFSIZ = 2048       # Size of the buffer
 ADDR = (HOST, PORT)
 
 tcpSerSock = socket(AF_INET, SOCK_STREAM)    # Create a socket.

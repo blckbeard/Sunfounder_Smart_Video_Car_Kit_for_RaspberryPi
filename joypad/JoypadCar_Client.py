@@ -9,7 +9,7 @@ from socket import *      # Import necessary modules
 
 HOST = '192.168.1.22'    # Server(Raspberry Pi) IP address
 PORT = 21567
-BUFSIZ = 1024             # buffer size
+BUFSIZ = 2048             # buffer size
 ADDR = (HOST, PORT)
 
 tcpCliSock = socket(AF_INET, SOCK_STREAM)   # Create a socket
