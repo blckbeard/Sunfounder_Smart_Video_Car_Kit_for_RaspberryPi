@@ -65,22 +65,21 @@ while True:
 		print 'data :',data
 		dataSplit = data.split("}{")
 		cleanData = dataSplit[0]
-
 		if len(cleanData) > 0 and cleanData[0] != "{" and len(dataSplit)>1:
 			cleanData = dataSplit[1]			
-			if len(cleanData)>0:
-				if cleanData[-1] != "}": 
-					cleanData = cleanData + "}"
-				if cleanData[0] == ",":
-					cleanData = cleanData[1:]
-				if cleanData[0] != "{":
-					cleanData = "{" + cleanData
-				print cleanData.split(",")
-				if len(cleanData.split(",")) == 16:
-					print "cleanData :",cleanData
-					devDict = json.loads(cleanData) #eval(cleanData)
-					if len(devDict) == 16:
-						print "verified devDict :",devDict
+		if len(cleanData)>0:
+			if cleanData[-1] != "}": 
+				cleanData = cleanData + "}"
+			if cleanData[0] == ",":
+				cleanData = cleanData[1:]
+			if cleanData[0] != "{":
+				cleanData = "{" + cleanData
+			print cleanData.split(",")
+			if len(cleanData.split(",")) == 16:
+				print "cleanData :",cleanData
+				devDict = json.loads(cleanData) #eval(cleanData)
+				if len(devDict) == 16:
+					print "verified devDict :",devDict
 
 
 
