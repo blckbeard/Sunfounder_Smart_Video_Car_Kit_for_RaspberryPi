@@ -75,6 +75,7 @@ while True:
 					cleanData = cleanData[1:]
 				if cleanData[0] != "{":
 					cleanData = "{" + cleanData
+				print cleanData.split(",")
 				if len(cleanData.split(",")) == 16:
 					print "cleanData :",cleanData
 					devDict = json.loads(cleanData) #eval(cleanData)
