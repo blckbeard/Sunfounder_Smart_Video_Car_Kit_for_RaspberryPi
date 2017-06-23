@@ -69,8 +69,7 @@ while True:
 		if len(cleanData) > 0 and cleanData[0] != "{" and len(dataSplit)>1:
 			cleanData = dataSplit[1]			
 			if len(cleanData)>0:
-				if cleanData[-1] != "}":
-					if 
+				if cleanData[-1] != "}": 
 					cleanData = cleanData + "}"
 				if cleanData[0] == ",":
 					cleanData = cleanData[1:]
