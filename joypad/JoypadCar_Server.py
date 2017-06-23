@@ -66,7 +66,7 @@ while True:
 		dataSplit = data.split("}{")
 		cleanData = dataSplit[0]
 
-		if cleanData[0] != "{" and len(dataSplit)>1:
+		if len(cleanData) > 0 and cleanData[0] != "{" and len(dataSplit)>1:
 			cleanData = dataSplit[1]			
 			if len(cleanData)>0:
 				if cleanData[-1] != "}":
