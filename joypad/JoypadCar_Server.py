@@ -63,6 +63,22 @@ while True:
 		# data is json
 		print 'type of data :',type(data)
 		print 'data :',data
+		cleanData = data.split("}{")[0]
+		if len(cleanData)>0:
+			if cleanData[-1] != "}":
+				cleanData = cleanData + "}"
+			if cleanData[0] == ",":
+				cleanData = cleanData[1:]
+			if cleanData[0] != "{":
+				cleanData = "{" + cleanData
+			#cleanData = data.replace("][", "],[")
+			print "cleanData :",cleanData
+			devDict = json.loads(cleanData) #eval(cleanData)
+			if len(devDict) == 16:
+				print "verified devDict :",devDict
+
+
+
 		#serialized_dict = json.loads(data)
 		# data is string
 		'''
