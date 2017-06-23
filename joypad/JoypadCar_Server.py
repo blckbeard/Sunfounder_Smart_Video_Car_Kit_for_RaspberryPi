@@ -77,8 +77,8 @@ while True:
 				if len(devDict) == 16:
 					#print "verified devDict :",devDict
 					for o in devList:
-						if devDict[0] != 0:
-							print o,":",devDict[0]
+						if devDict[o] != 0:
+							print o,":",devDict[o]
 
 
 		#serialized_dict = json.loads(data)
