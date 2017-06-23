@@ -61,6 +61,7 @@ while True:
 		data = tcpCliSock.recv(BUFSIZ)    # Receive data sent from the client. 
 		# Analyze the command received and control the car accordingly.
 		# data is json
+		print 'type of data :',type(data)
 		print 'data :',data
 		#serialized_dict = json.loads(data)
 		# data is string
