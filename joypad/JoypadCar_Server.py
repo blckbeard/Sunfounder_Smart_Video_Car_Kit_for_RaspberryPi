@@ -63,7 +63,11 @@ while True:
 		# data is json
 		print 'type of data :',type(data)
 		print 'data :',data
-		cleanData = data.split("}{")[0]
+		dataSplit = data.split("}{")
+		cleanData = dataSplit[0]
+		if cleanData[0] != "{":
+			cleanData = dataSplit[1]
+			
 		if len(cleanData)>0:
 			if cleanData[-1] != "}":
 				cleanData = cleanData + "}"
