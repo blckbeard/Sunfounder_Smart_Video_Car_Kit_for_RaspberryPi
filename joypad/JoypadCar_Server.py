@@ -70,16 +70,17 @@ while True:
 			cleanData = dataSplit[1]			
 			if len(cleanData)>0:
 				if cleanData[-1] != "}":
+					if 
 					cleanData = cleanData + "}"
 				if cleanData[0] == ",":
 					cleanData = cleanData[1:]
 				if cleanData[0] != "{":
 					cleanData = "{" + cleanData
-				#cleanData = data.replace("][", "],[")
-				print "cleanData :",cleanData
-				devDict = json.loads(cleanData) #eval(cleanData)
-				if len(devDict) == 16:
-					print "verified devDict :",devDict
+				if len(cleanData.split(",")) == 16:
+					print "cleanData :",cleanData
+					devDict = json.loads(cleanData) #eval(cleanData)
+					if len(devDict) == 16:
+						print "verified devDict :",devDict
 
 
 
