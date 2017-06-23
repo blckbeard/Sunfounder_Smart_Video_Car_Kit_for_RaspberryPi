@@ -65,10 +65,10 @@ while True:
 		print 'data :',data
 		dataSplit = data.split("}{")
 		cleanData = dataSplit[0]
-		if len(cleanData)>0:
-			if cleanData[0] != "{":
-				cleanData = dataSplit[1]			
 
+		if cleanData[0] != "{" and len(dataSplit)>1:
+			cleanData = dataSplit[1]			
+			if len(cleanData)>0:
 				if cleanData[-1] != "}":
 					cleanData = cleanData + "}"
 				if cleanData[0] == ",":
