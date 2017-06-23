@@ -60,7 +60,11 @@ while True:
 		data = ''
 		data = tcpCliSock.recv(BUFSIZ)    # Receive data sent from the client. 
 		# Analyze the command received and control the car accordingly.
+		# data is json
+		print 'data :',data
 		#serialized_dict = json.loads(data)
+		# data is string
+		'''
 		cleanData = data.split("][")[0]
 		if len(cleanData)>0:
 			if cleanData[-1] != "]":
@@ -74,6 +78,7 @@ while True:
 			devDict = eval(cleanData)
 			if len(devDict) == 16:
 				print "verified devDict :",devDict
+		'''
 		'''
 		if not data:
 			break

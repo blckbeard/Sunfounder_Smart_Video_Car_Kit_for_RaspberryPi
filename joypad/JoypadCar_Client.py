@@ -36,11 +36,15 @@ def sendDevDict(devDict):
     for o in devList:
         lstVal.append(devDict[o])
 
-
+    # tcp string send
+    '''
     serialized_dict = str(lstVal) #json.dumps(lstVal)
     #print "serialized_dict :",serialized_dict
     tcpCliSock.send(serialized_dict)
-    #tcpCliSock.close()
+    '''
+    # tcp json.dumps send
+    serialized_dict = json.dumps(lstVal)
+    tcpCliSock.send(serialized_dict)
 # Get Joypad
 ''' 0 - 133 - 255 '''
 dev = InputDevice('/dev/input/event0')
