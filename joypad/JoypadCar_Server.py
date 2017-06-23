@@ -75,8 +75,10 @@ while True:
 			if len(cleanData.split(",")) == 16:
 				devDict = json.loads(cleanData) #eval(cleanData)
 				if len(devDict) == 16:
-					print "verified devDict :",devDict
-
+					#print "verified devDict :",devDict
+					for o in devList:
+						if devDict[0] != 0:
+							print o,":",devDict[0]
 
 
 		#serialized_dict = json.loads(data)
