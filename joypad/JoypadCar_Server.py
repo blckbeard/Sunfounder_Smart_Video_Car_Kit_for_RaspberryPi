@@ -41,13 +41,13 @@ devList = [
     'R1',
     'R2'
 ]
-'''
+
 video_dir.setup(busnum=busnum)
 car_dir.setup(busnum=busnum)
 motor.setup(busnum=busnum)     # Initialize the Raspberry Pi GPIO connected to the DC motor. 
 video_dir.home_x_y()
 car_dir.home()
-'''
+
 while True:
 	print 'Waiting for connection...'
 	# Waiting for connection. Once receiving a connection, the function accept() returns a separate 
