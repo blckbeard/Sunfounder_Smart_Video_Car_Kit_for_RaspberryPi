@@ -81,7 +81,12 @@ while True:
 							# direction
 							#print 'turn'
 							car_dir.turn_joypad(devDict[o])
-						if devDict[o] != 0 and o != 'stick1H' and o != 'stick1V':
+						elif o == 'stick1V':
+							# motor move
+							#print 'move'
+							motor.move_joypad(devDict[o])
+
+						elif devDict[o] != 0 and o != 'stick1H' and o != 'stick1V':
 							print o,":",devDict[o]
 							
 

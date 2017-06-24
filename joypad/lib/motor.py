@@ -104,6 +104,15 @@ def backwardWithSpeed(spd = 50):
 	motor0(backward0)
 	motor1(backward1)
 
+def move_joypad(val):
+	# val 0<->100
+	speed = int(abs(val)*100.)
+	if val < 0:
+		forwardWithSpeed(speed)
+	else:
+		backwardWithSpeed(speed)
+
+
 def stop():
 	for pin in pins:
 		GPIO.output(pin, GPIO.LOW)
