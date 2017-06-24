@@ -7,9 +7,9 @@ def Map(x, in_min, in_max, out_min, out_max):
 
 def setup(busnum=None):
 	global leftPWM, rightPWM, homePWM, pwm
-	leftPWM = 400
+	leftPWM = 350 #400
 	homePWM = 450
-	rightPWM = 500
+	rightPWM = 550 #500
 	offset =0
 	try:
 		for line in open('lib/config'):
