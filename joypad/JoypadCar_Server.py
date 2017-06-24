@@ -78,7 +78,7 @@ while True:
 					# print "verified devDict :",devDict
 					for o in devList:
 						if devDict[o] != 0:
-							# print o,":",devDict[o]
+							print o,":",devDict[o]
 							if o == 'stick1H':
 								# direction
 								print 'turn left'
