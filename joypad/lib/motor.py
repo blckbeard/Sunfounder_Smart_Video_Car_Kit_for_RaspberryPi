@@ -45,7 +45,7 @@ def setup(busnum=None):
 	GPIO.setwarnings(False)
 	GPIO.setmode(GPIO.BOARD)        # Number GPIOs by its physical location
 	try:
-		for line in open("config"):
+		for line in open("lib/config"):
 			if line[0:8] == "forward0":
 				forward0 = line[11:-1]
 			if line[0:8] == "forward1":
