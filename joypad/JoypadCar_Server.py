@@ -82,7 +82,7 @@ while True:
 							if o == 'stick1H':
 								# direction
 								print 'turn left'
-								car_dir.turn_left_joypad(devDict[o])
+								car_dir.turn_joypad(devDict[o])
 
 
 		#serialized_dict = json.loads(data)
