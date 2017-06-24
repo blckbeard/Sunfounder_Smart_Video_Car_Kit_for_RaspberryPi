@@ -77,12 +77,14 @@ while True:
 				if len(devDict) == 16:
 					# print "verified devDict :",devDict
 					for o in devList:
-						if devDict[o] != 0:
-							#print o,":",devDict[o]
-							if o == 'stick1H':
-								# direction
-								#print 'turn'
-								car_dir.turn_joypad(devDict[o])
+						if o == 'stick1H':
+							# direction
+							#print 'turn'
+							car_dir.turn_joypad(devDict[o])
+						if devDict[o] != 0 and o != 'stick1H' and o != 'stick1V':
+							print o,":",devDict[o]
+							
+
 
 
 		#serialized_dict = json.loads(data)
