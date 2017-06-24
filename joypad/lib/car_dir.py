@@ -43,11 +43,11 @@ def turn_joypad(val):
 	if val < 0:
 		# turn left
 		print "turn left"
-		turnVal = int(homePWM - ((homePWM - leftPWM)*val))
+		turnVal = int(homePWM - ((homePWM - leftPWM)*abs(val))
 	elif val > 0:
 		# turn right
 		print "turn right"
-		turnVal = int(homePWM + ((rightPWM - homePWM)*val))  
+		turnVal = int(homePWM + ((rightPWM - homePWM)*abs(val))  
 	# turn Car
 	print "turn val :",turnVal
 	pwm.write(0, 0, turnVal) # CH0
