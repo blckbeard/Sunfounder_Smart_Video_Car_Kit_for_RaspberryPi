@@ -75,10 +75,14 @@ while True:
 			if len(cleanData.split(",")) == 16:
 				devDict = json.loads(cleanData) #eval(cleanData)
 				if len(devDict) == 16:
-					#print "verified devDict :",devDict
+					# print "verified devDict :",devDict
 					for o in devList:
 						if devDict[o] != 0:
-							print o,":",devDict[o]
+							# print o,":",devDict[o]
+							if o == 'stick1H':
+								# direction
+								print 'turn left'
+								car_dir.turn_left_joypad(val)
 
 
 		#serialized_dict = json.loads(data)

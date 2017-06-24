@@ -34,6 +34,11 @@ def turn_left():
 	global leftPWM
 	pwm.write(0, 0, leftPWM)  # CH0
 
+def turn_left_joypad(val):
+	global leftPWM
+	turnVal = homePWM + ((homePWM - leftPWM)*val)
+	pwm.write(0, 0, turnVal)  # CH0
+
 # ==========================================================================================
 # Make the car turn right.
 # ==========================================================================================
