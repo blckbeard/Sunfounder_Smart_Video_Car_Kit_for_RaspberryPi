@@ -36,7 +36,7 @@ def turn_left():
 
 def turn_left_joypad(val):
 	global leftPWM, homePWM
-	turnVal = homePWM + ((homePWM - leftPWM)*val)
+	turnVal = int(homePWM + ((homePWM - leftPWM)*val))
 	pwm.write(0, 0, turnVal)  # CH0
 
 # ==========================================================================================
