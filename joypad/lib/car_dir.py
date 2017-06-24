@@ -36,6 +36,10 @@ def turn_left():
 
 def turn_joypad(val):
 	global leftPWM, homePWM
+	print "val :",val
+	print "homePWM :",homePWM
+	print "leftPWM :",leftPWM
+	print "rightPWM :",rightPWM
 	if val < 0:
 		# turn left
 		print "turn left"
