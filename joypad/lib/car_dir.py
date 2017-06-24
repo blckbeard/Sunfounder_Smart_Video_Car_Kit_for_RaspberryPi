@@ -12,7 +12,7 @@ def setup(busnum=None):
 	rightPWM = 500
 	offset =0
 	try:
-		for line in open('config'):
+		for line in open('lib/config'):
 			if line[0:8] == 'offset =':
 				offset = int(line[9:-1])
 	except:
