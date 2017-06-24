@@ -29,7 +29,7 @@ def analogicStick(e_code,e_type,e_value,mid,mutePrint=False):
     return valPerc
 
 def sendDevDict(devDict):
-    msg = "send devDict : "+devDict
+    msg = "send devDict : "+str(devDict)
     print msg
     #tcpCliSock.connect(ADDR)
     lstVal = []
