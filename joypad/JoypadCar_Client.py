@@ -104,7 +104,7 @@ for event in dev.read_loop(): # boucle qui surveille l'arrivee d'un evenement
         if e_value != 0 :
             devDict['stick1H'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
         else:
-            devDict['stick1H'] = analogicStick(e_code,e_type,0,128,mutePrint=mutePrint)
+            devDict['stick1H'] = analogicStick(e_code,e_type,128,128,mutePrint=mutePrint)
     # Stick 1 H<->B Analogique
     if e_code == 1 :
         devDict['stick1V'] = analogicStick(e_code,e_type,e_value,128,mutePrint=mutePrint)
