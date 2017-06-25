@@ -78,11 +78,11 @@ while True:
 					# print "verified devDict :",devDict
 					for o in devList:
 						if o == 'stick2H':
-							# direction
+							# direction with stick2
 							#print 'turn'
 							car_dir.turn_joypad(devDict[o])
 						elif o == 'stick1V':
-							# motor move
+							# motor move with stick1
 							#print 'move'
 							motor.move_joypad(devDict[o])
 
