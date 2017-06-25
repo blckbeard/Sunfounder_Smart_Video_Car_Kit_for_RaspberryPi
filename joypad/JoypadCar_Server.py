@@ -77,7 +77,7 @@ while True:
 				if len(devDict) == 16:
 					# print "verified devDict :",devDict
 					for o in devList:
-						if o == 'stick1H':
+						if o == 'stick2H':
 							# direction
 							#print 'turn'
 							car_dir.turn_joypad(devDict[o])
