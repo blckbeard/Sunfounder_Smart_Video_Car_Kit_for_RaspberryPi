@@ -86,6 +86,21 @@ while True:
 							#print 'move'
 							motor.move_joypad(devDict[o])
 
+						elif o == 'crossLR':
+							# motor move with stick1
+							#print 'move'
+							if devDict[o] > 0:
+								video_dir.move_increase_x()
+							elif devDict[o] < 0:
+								video_dir.move_decrease_x()
+
+						elif o == 'crossUpDown':
+							# motor move with stick1
+							#print 'move'
+							if devDict[o] > 0:
+								video_dir.move_increase_y()
+							elif devDict[o] < 0:
+								video_dir.move_decrease_y()
 						#elif devDict[o] != 0 and o != 'stick1H' and o != 'stick1V':
 						#	print o,":",devDict[o]
 							
