@@ -7,7 +7,7 @@ from select import select
 
 from socket import *      # Import necessary modules
 
-HOST = '192.168.1.22'    # Server(Raspberry Pi) IP address
+HOST = '192.168.1.20'    # Server(Raspberry Pi) IP address
 PORT = 21567
 BUFSIZ = 1024             # buffer size
 ADDR = (HOST, PORT)
